@@ -164,7 +164,20 @@ function HeroSplit() {
         <div className="liquid-glass-strong pointer-events-none absolute inset-4 rounded-3xl lg:inset-6" />
 
         <div className="relative flex items-center justify-between px-2 py-2 lg:px-4">
-          <Monogram size="text-2xl" />
+          <div className="flex items-center gap-3">
+            <Monogram size="text-2xl" />
+            <div className="liquid-glass hidden items-center gap-3 rounded-full px-4 py-2 sm:flex">
+              <Social href={LINKS.github} label="GitHub">
+                <Github className="h-4 w-4" />
+              </Social>
+              <Social href={LINKS.linkedin} label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </Social>
+              <Social href={`mailto:${LINKS.email}`} label="Email">
+                <Mail className="h-4 w-4" />
+              </Social>
+            </div>
+          </div>
           <a
             href="#projects"
             className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
@@ -229,21 +242,9 @@ function HeroSplit() {
 
       {/* Right panel — desktop only */}
       <div className="hidden w-[48%] flex-col p-6 lg:flex">
-        <div className="flex items-center justify-between">
-          <div className="liquid-glass flex items-center gap-3 rounded-full px-4 py-2">
-            <Social href={LINKS.github} label="GitHub">
-              <Github className="h-4 w-4" />
-            </Social>
-            <Social href={LINKS.linkedin} label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
-            </Social>
-            <Social href={`mailto:${LINKS.email}`} label="Email">
-              <Mail className="h-4 w-4" />
-            </Social>
-            <ArrowRight className="h-4 w-4 text-white/50" />
-          </div>
+        <div className="flex items-center justify-end">
           <a
-            href={`mailto:${LINKS.email}`}
+            href="#contact"
             className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
           >
             <Sparkles className="h-4 w-4" />

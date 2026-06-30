@@ -35,6 +35,7 @@ type Project = {
   repo?: string;
   icon: React.ReactNode;
   flagship?: boolean;
+  badge?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -48,6 +49,25 @@ const PROJECTS: Project[] = [
     repo: "https://github.com/krittapastrycode",
     icon: <Server className="h-5 w-5" />,
     flagship: true,
+    badge: "Flagship",
+  },
+  {
+    name: "HoroAcademy",
+    tagline: "Astrology platform · 75,000 registered users",
+    description:
+      "Maintained and extended a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
+    stack: ["Laravel", "Filament PHP", "PostgreSQL"],
+    icon: <Server className="h-5 w-5" />,
+    badge: "Production",
+  },
+  {
+    name: "LogicIQ",
+    tagline: "Subscription · credit · top-up system",
+    description:
+      "Engineered a subscription, credit, and top-up system — billing logic, credit balances, and admin interfaces in Laravel + Filament — so internal teams can manage user plans and balances without developer intervention.",
+    stack: ["Laravel", "Filament PHP", "PostgreSQL"],
+    icon: <CreditCard className="h-5 w-5" />,
+    badge: "Production",
   },
   {
     name: "Military Task Manager",
@@ -59,20 +79,13 @@ const PROJECTS: Project[] = [
     icon: <Database className="h-5 w-5" />,
   },
   {
-    name: "LogicIQ",
-    tagline: "Subscription · credit · top-up system",
+    name: "Baby Reveal",
+    tagline: "Interactive gender-reveal microsite",
     description:
-      "Engineered a subscription, credit, and top-up system — billing logic, credit balances, and admin interfaces in Laravel + Filament — so internal teams can manage user plans and balances without developer intervention.",
-    stack: ["Laravel", "Filament PHP", "PostgreSQL"],
-    icon: <CreditCard className="h-5 w-5" />,
-  },
-  {
-    name: "HoroAcademy",
-    tagline: "Astrology platform · 75,000 registered users",
-    description:
-      "Maintained and extended a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
-    stack: ["Laravel", "Filament PHP", "PostgreSQL"],
-    icon: <Server className="h-5 w-5" />,
+      "A playful balloon-pop reveal with shareable QR codes — a small, fun build shipped and live on Vercel.",
+    stack: ["JavaScript", "Vercel"],
+    live: { label: "Live demo", href: "https://baby-reveal-kappa.vercel.app" },
+    icon: <Sparkles className="h-5 w-5" />,
   },
   {
     name: "DomEmerge",
@@ -82,15 +95,6 @@ const PROJECTS: Project[] = [
     stack: ["React Native", "Expo", "Sonic Sensor", "Push Notifications"],
     repo: "https://github.com/krittapastrycode",
     icon: <Smartphone className="h-5 w-5" />,
-  },
-  {
-    name: "Baby Reveal",
-    tagline: "Interactive gender-reveal microsite",
-    description:
-      "A playful balloon-pop reveal with shareable QR codes — a small, fun build shipped and live on Vercel.",
-    stack: ["JavaScript", "Vercel"],
-    live: { label: "Live demo", href: "https://baby-reveal-kappa.vercel.app" },
-    icon: <Sparkles className="h-5 w-5" />,
   },
 ];
 
@@ -386,9 +390,9 @@ function Projects() {
                   <p className="text-xs text-white/50">{p.tagline}</p>
                 </div>
               </div>
-              {p.flagship && (
+              {p.badge && (
                 <span className="liquid-glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-white/70">
-                  Flagship
+                  {p.badge}
                 </span>
               )}
             </div>

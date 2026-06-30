@@ -9,6 +9,7 @@ import {
   MapPin,
   Sparkles,
   Menu,
+  Download,
   Database,
   Server,
   Smartphone,
@@ -178,13 +179,23 @@ function HeroSplit() {
               </Social>
             </div>
           </div>
-          <a
-            href="#projects"
-            className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
-          >
-            <Menu className="h-4 w-4" />
-            Menu
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href="/krittapas-polmanee-cv.pdf"
+              download
+              className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+            >
+              <Download className="h-4 w-4" />
+              Resume
+            </a>
+            <a
+              href="#projects"
+              className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+            >
+              <Menu className="h-4 w-4" />
+              Menu
+            </a>
+          </div>
         </div>
 
         <div className="relative flex flex-1 flex-col items-center justify-center px-4 py-16 text-center lg:px-10">
@@ -242,22 +253,21 @@ function HeroSplit() {
 
       {/* Right panel — desktop only */}
       <div className="hidden w-[48%] flex-col p-6 lg:flex">
-        <div className="flex items-center justify-end">
+        <div className="flex items-start justify-between gap-4">
+          <div className="liquid-glass w-64 rounded-3xl p-5">
+            <p className="text-sm font-medium text-white">Open to opportunities</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/60">
+              Looking for remote backend or full-stack roles with Europe timezone
+              overlap. Available for new projects.
+            </p>
+          </div>
           <a
             href="#contact"
-            className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+            className="liquid-glass flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
           >
             <Sparkles className="h-4 w-4" />
             Get in touch
           </a>
-        </div>
-
-        <div className="liquid-glass mt-6 w-64 rounded-3xl p-5">
-          <p className="text-sm font-medium text-white">Open to opportunities</p>
-          <p className="mt-1 text-xs leading-relaxed text-white/60">
-            Looking for remote backend or full-stack roles with Europe timezone
-            overlap. Available for new projects.
-          </p>
         </div>
 
         <div className="liquid-glass-strong mt-auto rounded-[2.5rem] p-4">

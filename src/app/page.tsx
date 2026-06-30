@@ -51,9 +51,9 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Military Task Manager",
-    tagline: "Role-aware mission assignment system",
+    tagline: "Role-based task & mission manager · team project",
     description:
-      "Secure mission-assignment platform with admin-approval onboarding, role-based access (admin / commander / user), Google Calendar sync via service account, and PDF report export.",
+      "A collaborative project built with friends to a given spec — a role-based task and mission manager (admin / commander / user) that works like a shared to-do system, with admin-approval onboarding, Google Calendar sync via service account, and PDF report export.",
     stack: ["Laravel 11", "Next.js 15", "PostgreSQL", "Filament", "Google Calendar API"],
     repo: "https://github.com/krittapastrycode/military-task-manager-backend",
     icon: <Database className="h-5 w-5" />,

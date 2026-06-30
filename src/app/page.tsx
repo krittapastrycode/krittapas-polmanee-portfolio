@@ -60,9 +60,9 @@ const PROJECTS: Project[] = [
   },
   {
     name: "LogicIQ",
-    tagline: "Subscription & billing system",
+    tagline: "Subscription · credit · top-up system",
     description:
-      "Engineered a subscription management system — billing logic plus admin interfaces in Laravel + Filament — so internal teams can manage user plans without developer intervention.",
+      "Engineered a subscription, credit, and top-up system — billing logic, credit balances, and admin interfaces in Laravel + Filament — so internal teams can manage user plans and balances without developer intervention.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
     icon: <CreditCard className="h-5 w-5" />,
   },

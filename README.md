@@ -4,6 +4,10 @@ Personal portfolio / CV site for **Krittapas Polmanee** — full-stack developer
 
 Liquid-glass aesthetic over a grayscale video background. Built with Next.js 16 + Tailwind CSS v4.
 
+## Reproduce this template
+
+See **[design-rule.md](./design-rule.md)** — the full design system, tokens, liquid-glass CSS, layout spec, and a copy-paste **FULL PROMPT** (§9). To rebuild for someone else: copy the §9 prompt, replace the data block at the end with new content, done.
+
 ## Develop
 
 ```bash

@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
     name: "HoroAcademy",
     tagline: "Astrology platform · 75,000 registered users",
     description:
-      "Maintain and extend a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
+      "Maintained and extended a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
     icon: <Server className="h-5 w-5" />,
   },
@@ -104,9 +104,9 @@ const EXPERIENCE = [
   {
     role: "Backend Developer",
     org: "Quintaura Co., Ltd. — Thailand",
-    period: "Aug 2025 — Present",
+    period: "Aug 2025 — Jul 2026",
     detail:
-      "Maintain and extend a Laravel platform serving 75,000+ users. Built subscription billing and Filament admin tooling; developing a CRM + doctor-scheduling prototype for a large healthcare client.",
+      "Maintained and extended a Laravel platform serving 75,000 registered users. Built subscription, credit and top-up billing logic plus Filament admin tooling; developed a CRM + doctor-scheduling prototype for a large healthcare client.",
   },
   {
     role: "Research Intern",
@@ -254,8 +254,8 @@ function HeroSplit() {
             Production experience
           </p>
           <p className="mt-2 text-sm text-white/70">
-            Maintaining systems that serve{" "}
-            <em className="font-serif italic text-white/90">75,000+ users</em>.
+            Maintained systems serving{" "}
+            <em className="font-serif italic text-white/90">75,000 registered users</em>.
           </p>
         </div>
       </div>

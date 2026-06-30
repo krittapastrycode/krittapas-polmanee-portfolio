@@ -13,6 +13,7 @@ import {
   Database,
   Server,
   Smartphone,
+  CreditCard,
   ExternalLink,
 } from "lucide-react";
 
@@ -58,12 +59,29 @@ const PROJECTS: Project[] = [
     icon: <Database className="h-5 w-5" />,
   },
   {
-    name: "HoroAcademy",
-    tagline: "Astrology platform · 75,000+ users",
+    name: "LogicIQ",
+    tagline: "Subscription & billing system",
     description:
-      "Production Laravel backend maintained at Quintaura. Built subscription/billing logic and a custom Filament admin dashboard letting internal teams manage plans without developer intervention.",
+      "Engineered a subscription management system — billing logic plus admin interfaces in Laravel + Filament — so internal teams can manage user plans without developer intervention.",
+    stack: ["Laravel", "Filament PHP", "PostgreSQL"],
+    icon: <CreditCard className="h-5 w-5" />,
+  },
+  {
+    name: "HoroAcademy",
+    tagline: "Astrology platform · 75,000 registered users",
+    description:
+      "Maintain and extend a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
     icon: <Server className="h-5 w-5" />,
+  },
+  {
+    name: "DomEmerge",
+    tagline: "Mobile security system · Final-year project",
+    description:
+      "Graduation project — a mobile security system that pairs a sonic sensor with real-time mobile push notifications to detect intrusion and alert the user the moment it's triggered.",
+    stack: ["React Native", "Expo", "Sonic Sensor", "Push Notifications"],
+    repo: "https://github.com/krittapastrycode",
+    icon: <Smartphone className="h-5 w-5" />,
   },
   {
     name: "Baby Reveal",
@@ -73,15 +91,6 @@ const PROJECTS: Project[] = [
     stack: ["JavaScript", "Vercel"],
     live: { label: "Live demo", href: "https://baby-reveal-kappa.vercel.app" },
     icon: <Sparkles className="h-5 w-5" />,
-  },
-  {
-    name: "DomEmerge",
-    tagline: "Cross-platform mobile app",
-    description:
-      "React Native / Expo application with file-based routing — exploring mobile delivery of the same product instincts.",
-    stack: ["React Native", "Expo", "TypeScript"],
-    repo: "https://github.com/krittapastrycode",
-    icon: <Smartphone className="h-5 w-5" />,
   },
 ];
 

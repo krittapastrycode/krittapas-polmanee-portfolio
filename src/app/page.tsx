@@ -33,6 +33,7 @@ type Project = {
   stack: string[];
   live?: { label: string; href: string };
   repo?: string;
+  notPublic?: boolean;
   adminPanel?: boolean;
   icon: React.ReactNode;
   flagship?: boolean;
@@ -80,6 +81,7 @@ const PROJECTS: Project[] = [
     description:
       "A collaborative project built with friends to a given spec — a role-based task and mission manager (admin / commander / user) that works like a shared to-do system, with admin-approval onboarding, Google Calendar sync via service account, and PDF report export.",
     stack: ["Laravel 11", "Next.js 15", "PostgreSQL", "Filament", "Google Calendar API"],
+    notPublic: true,
     adminPanel: true,
     icon: <Database className="h-5 w-5" />,
   },
@@ -416,7 +418,7 @@ function Projects() {
               ))}
             </div>
 
-            {(p.live || p.repo || p.adminPanel) && (
+            {(p.live || p.repo || p.notPublic || p.adminPanel) && (
               <div className="mt-5 flex flex-wrap gap-3">
                 {p.live && (
                   <a
@@ -440,9 +442,15 @@ function Projects() {
                     Source
                   </a>
                 )}
+                {p.notPublic && (
+                  <span className="flex items-center gap-2 rounded-full px-4 py-2 text-xs text-white/40 border border-white/10">
+                    <Github className="h-3.5 w-3.5" />
+                    Not public
+                  </span>
+                )}
                 {p.adminPanel && (
                   <span className="flex items-center gap-2 rounded-full px-4 py-2 text-xs text-white/40 border border-white/10">
-                    🔒 Admin panel · internal
+                    🔒 Admin panel · not public
                   </span>
                 )}
               </div>

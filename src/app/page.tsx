@@ -270,7 +270,7 @@ function HeroSplit() {
           <div className="liquid-glass w-64 rounded-3xl p-5">
             <p className="text-sm font-medium text-white">Open to opportunities</p>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Looking for remote backend or full-stack roles. Available for new projects.
+              Looking for remote backend or full-stack roles. Available now.
             </p>
           </div>
           <a

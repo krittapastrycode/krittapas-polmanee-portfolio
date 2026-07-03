@@ -80,7 +80,6 @@ const PROJECTS: Project[] = [
     description:
       "A collaborative project built with friends to a given spec — a role-based task and mission manager (admin / commander / user) that works like a shared to-do system, with admin-approval onboarding, Google Calendar sync via service account, and PDF report export.",
     stack: ["Laravel 11", "Next.js 15", "PostgreSQL", "Filament", "Google Calendar API"],
-    repo: "https://github.com/krittapastrycode/military-task-manager-backend",
     adminPanel: true,
     icon: <Database className="h-5 w-5" />,
   },

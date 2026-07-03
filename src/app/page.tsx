@@ -217,7 +217,7 @@ function HeroSplit() {
           </div>
 
           <p className="mb-4 flex items-center gap-2 text-xs uppercase tracking-widest text-white/50">
-            <MapPin className="h-3.5 w-3.5" /> Bangkok · Remote · EU overlap
+            <MapPin className="h-3.5 w-3.5" /> Bangkok · Remote
           </p>
 
           <h1 className="text-5xl tracking-[-0.05em] text-white lg:text-7xl">

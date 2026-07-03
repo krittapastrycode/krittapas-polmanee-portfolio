@@ -270,8 +270,7 @@ function HeroSplit() {
           <div className="liquid-glass w-64 rounded-3xl p-5">
             <p className="text-sm font-medium text-white">Open to opportunities</p>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Looking for remote backend or full-stack roles with Europe timezone
-              overlap. Available for new projects.
+              Looking for remote backend or full-stack roles. Available for new projects.
             </p>
           </div>
           <a
@@ -500,7 +499,7 @@ function Contact() {
           Let&apos;s <em className="text-white/70">work together</em>
         </h2>
         <p className="mx-auto mt-4 max-w-md text-sm text-white/60">
-          Open to remote backend or full-stack roles with Europe timezone overlap.
+          Open to remote backend or full-stack roles.
         </p>
 
         <a

@@ -20,7 +20,7 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   title: "Krittapas Polmanee — Full-Stack Developer",
   description:
-    "Full-stack developer with production backend experience in Laravel & NestJS. Building systems that serve 75,000+ users. Open to remote roles with Europe timezone overlap.",
+    "Full-stack developer with production backend experience in Laravel & NestJS. Building systems that serve 75,000+ users. Open to remote backend or full-stack roles.",
   openGraph: {
     title: "Krittapas Polmanee — Full-Stack Developer",
     description:

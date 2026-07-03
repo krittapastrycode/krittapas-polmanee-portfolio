@@ -444,7 +444,7 @@ function Projects() {
                 )}
                 {p.notPublic && (
                   <span className="flex items-center gap-2 rounded-full px-4 py-2 text-xs text-white/40 border border-white/10">
-                    <Github className="h-3.5 w-3.5" />
+                    <ExternalLink className="h-3.5 w-3.5" />
                     Not public
                   </span>
                 )}

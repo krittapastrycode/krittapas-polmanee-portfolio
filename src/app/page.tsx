@@ -33,6 +33,7 @@ type Project = {
   stack: string[];
   live?: { label: string; href: string };
   repo?: string;
+  adminPanel?: boolean;
   icon: React.ReactNode;
   flagship?: boolean;
   badge?: string;
@@ -58,6 +59,7 @@ const PROJECTS: Project[] = [
       "Maintained and extended a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
     live: { label: "horoacademy.com", href: "https://www.horoacademy.com" },
+    adminPanel: true,
     icon: <Server className="h-5 w-5" />,
     badge: "Production",
   },
@@ -68,6 +70,7 @@ const PROJECTS: Project[] = [
       "Engineered a subscription, credit, and top-up system — billing logic, credit balances, and admin interfaces in Laravel + Filament — so internal teams can manage user plans and balances without developer intervention.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
     live: { label: "logiciq.io", href: "https://logiciq.io" },
+    adminPanel: true,
     icon: <CreditCard className="h-5 w-5" />,
     badge: "Production",
   },
@@ -78,6 +81,7 @@ const PROJECTS: Project[] = [
       "A collaborative project built with friends to a given spec — a role-based task and mission manager (admin / commander / user) that works like a shared to-do system, with admin-approval onboarding, Google Calendar sync via service account, and PDF report export.",
     stack: ["Laravel 11", "Next.js 15", "PostgreSQL", "Filament", "Google Calendar API"],
     repo: "https://github.com/krittapastrycode/military-task-manager-backend",
+    adminPanel: true,
     icon: <Database className="h-5 w-5" />,
   },
   {
@@ -413,7 +417,7 @@ function Projects() {
               ))}
             </div>
 
-            {(p.live || p.repo) && (
+            {(p.live || p.repo || p.adminPanel) && (
               <div className="mt-5 flex flex-wrap gap-3">
                 {p.live && (
                   <a
@@ -436,6 +440,11 @@ function Projects() {
                     <Github className="h-3.5 w-3.5" />
                     Source
                   </a>
+                )}
+                {p.adminPanel && (
+                  <span className="flex items-center gap-2 rounded-full px-4 py-2 text-xs text-white/40 border border-white/10">
+                    🔒 Admin panel · internal
+                  </span>
                 )}
               </div>
             )}

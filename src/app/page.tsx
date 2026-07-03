@@ -57,6 +57,7 @@ const PROJECTS: Project[] = [
     description:
       "Maintained and extended a production Laravel platform with 75,000 registered users at Quintaura — fixing bugs, shipping features, and building out a custom Filament admin dashboard for managing complex niche data and feature configuration.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
+    live: { label: "horoacademy.com", href: "https://www.horoacademy.com" },
     icon: <Server className="h-5 w-5" />,
     badge: "Production",
   },
@@ -66,6 +67,7 @@ const PROJECTS: Project[] = [
     description:
       "Engineered a subscription, credit, and top-up system — billing logic, credit balances, and admin interfaces in Laravel + Filament — so internal teams can manage user plans and balances without developer intervention.",
     stack: ["Laravel", "Filament PHP", "PostgreSQL"],
+    live: { label: "logiciq.io", href: "https://logiciq.io" },
     icon: <CreditCard className="h-5 w-5" />,
     badge: "Production",
   },

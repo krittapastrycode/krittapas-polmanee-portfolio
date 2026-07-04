@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Sparkles,
-  Menu,
   Download,
   Database,
   Server,
@@ -207,13 +206,6 @@ function HeroSplit() {
             >
               <Download className="h-4 w-4" />
               Resume
-            </a>
-            <a
-              href="#projects"
-              className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
-            >
-              <Menu className="h-4 w-4" />
-              Menu
             </a>
           </div>
         </div>
@@ -510,7 +502,7 @@ function Experience() {
 
 function Contact() {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-24 text-center lg:px-8">
+    <section id="contact" className="mx-auto max-w-3xl px-4 py-24 text-center lg:px-8">
       <div className="liquid-glass-strong rounded-[2.5rem] p-10 lg:p-16">
         <p className="text-xs uppercase tracking-widest text-white/50">Contact</p>
         <h2 className="mt-3 text-4xl tracking-[-0.04em] text-white lg:text-5xl">

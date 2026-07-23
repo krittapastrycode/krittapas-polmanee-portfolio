@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
     name: "TSEC",
     tagline: "Thai government scholarship platform · tsec.info",
     description:
-      "Full-stack platform for a Thai government scholarship program sending students to partner universities in China. Bilingual (TH/EN) public site, a 6-step student application wizard with autosave, event registration with QR check-in and badge printing, and a role-gated admin console with RLS-first authorization. 36 database migrations, 261 passing unit tests plus a dedicated RLS integration suite — built from schema to production in roughly three weeks.",
+      "Full-stack platform for a Thai government scholarship program sending students to partner universities in China. Bilingual (TH/EN) public site, a 6-step student application wizard with autosave, event registration with QR check-in and badge printing, and a role-gated admin console with RLS-first authorization — backed by a full unit and integration test suite covering database-level security policies.",
     stack: ["Next.js 16", "Supabase (Postgres + RLS)", "TypeScript", "Tailwind CSS 4", "next-intl", "Vercel"],
     live: { label: "tsec.info", href: "https://tsec.info" },
     icon: <GraduationCap className="h-5 w-5" />,

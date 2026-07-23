@@ -26,7 +26,7 @@ const LINKS = {
   email: "capton45@gmail.com",
 };
 
-const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${LINKS.email}`;
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${LINKS.email}`;
 
 type Project = {
   name: string;

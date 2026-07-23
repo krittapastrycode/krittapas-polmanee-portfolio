@@ -26,6 +26,8 @@ const LINKS = {
   email: "capton45@gmail.com",
 };
 
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${LINKS.email}`;
+
 type Project = {
   name: string;
   tagline: string;
@@ -204,7 +206,7 @@ function HeroSplit() {
               <Social href={LINKS.linkedin} label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
               </Social>
-              <Social href={`mailto:${LINKS.email}`} label="Email">
+              <Social href={GMAIL_COMPOSE_URL} label="Email">
                 <Mail className="h-4 w-4" />
               </Social>
             </div>
@@ -524,7 +526,9 @@ function Contact() {
         </p>
 
         <a
-          href={`mailto:${LINKS.email}`}
+          href={GMAIL_COMPOSE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="liquid-glass-strong mx-auto mt-8 flex w-fit items-center gap-3 rounded-full px-6 py-3 text-white transition-transform hover:scale-105 active:scale-95"
         >
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15">

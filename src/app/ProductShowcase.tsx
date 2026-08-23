@@ -192,7 +192,7 @@ function MapDrill() {
               ))}
             </svg>
           </>
-        ) : (
+        ) : data ? (
           <>
             {/* back */}
             <button
@@ -243,7 +243,7 @@ function MapDrill() {
               ))}
             </svg>
           </>
-        )}
+        ) : null}
       </div>
 
       {/* side list */}
@@ -259,7 +259,7 @@ function MapDrill() {
           )}
         </div>
         <div className="flex-1 space-y-0.5 overflow-y-auto p-1.5">
-          {region
+          {data
             ? data.provinces.map((p) => (
                 <button
                   key={p.id}

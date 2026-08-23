@@ -108,4 +108,142 @@ h1 .italic, h2 .italic, h3 .italic {
     mask-composite: exclude;
     pointer-events: none;
   }
+
+  /* Pressable tactile feedback: lift on hover, depress on click */
+  .pressable {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    will-change: transform;
+  }
+
+  .pressable:hover {
+    transform: translateY(-1px) scale(1.04);
+    filter: brightness(1.1);
+  }
+
+  .pressable:active {
+    transform: translateY(1px) scale(0.96);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
+    filter: brightness(0.95);
+  }
+
+  /* Sweeping shine: periodic light streak across pressable surfaces */
+  .shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .shine::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    bottom: -30%;
+    left: 0;
+    width: 40%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent
+    );
+    transform: translateX(-260%) skewX(-18deg);
+    animation: shine-sweep 5.2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes shine-sweep {
+    0% {
+      transform: translateX(-260%) skewX(-18deg);
+    }
+    18% {
+      transform: translateX(460%) skewX(-18deg);
+    }
+    100% {
+      transform: translateX(460%) skewX(-18deg);
+    }
+  }
+
+  /* Flagship badge — standout tier: white-tinted surface, tighter white glow, faster sweep */
+  .shine-flagship {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.06)
+    );
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    animation: badge-glow 2.86s ease-in-out infinite;
+  }
+
+  @keyframes badge-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .shine-flagship::after {
+    width: 60%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 240, 160, 0.55) 50%,
+      transparent
+    );
+    animation: shine-sweep-flagship 2.86s ease-in-out infinite;
+  }
+
+  @keyframes shine-sweep-flagship {
+    0% {
+      transform: translateX(-220%) skewX(-18deg);
+    }
+    32% {
+      transform: translateX(420%) skewX(-18deg);
+    }
+    100% {
+      transform: translateX(420%) skewX(-18deg);
+    }
+  }
+
+  /* Flagship card — golden aura pulse around the whole card */
+  .flagship-card {
+    animation: flagship-glow 3.9s ease-in-out infinite;
+  }
+
+  @keyframes flagship-glow {
+    0%,
+    100% {
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(255, 255, 255, 0.12);
+    }
+    50% {
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 0 22px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shine-flagship {
+      animation: none;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    }
+    .shine-flagship::after {
+      animation: none;
+      opacity: 0.5;
+      transform: translateX(420%) skewX(-18deg);
+    }
+    .flagship-card {
+      animation: none;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 0 16px rgba(255, 255, 255, 0.3);
+    }
+  }
 }

@@ -12,3 +12,5 @@ npm-debug.log*
 .omc
 .playwright-mcp
 .agents
+
+.vercel

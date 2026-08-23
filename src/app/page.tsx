@@ -1,5 +1,7 @@
 "use client";
 
+import ProductShowcase, { BaanTDeeShowcase } from "./ProductShowcase";
+
 import {
   ArrowRight,
   ArrowUpRight,
@@ -40,6 +42,7 @@ type Project = {
   icon: React.ReactNode;
   flagship?: boolean;
   badge?: string;
+  showcase?: boolean;
 };
 
 const PROJECTS: Project[] = [
@@ -48,7 +51,7 @@ const PROJECTS: Project[] = [
     tagline: "Thai government scholarship platform · tsec.info",
     description:
       "Full-stack platform for a Thai government scholarship program sending students to partner universities in China. Bilingual (TH/EN) public site, a 6-step student application wizard with autosave, event registration with QR check-in and badge printing, and a role-gated admin console with RLS-first authorization — backed by a full unit and integration test suite covering database-level security policies.",
-    stack: ["Next.js 16", "Supabase (Postgres + RLS)", "TypeScript", "Tailwind CSS 4", "next-intl", "Vercel"],
+    stack: ["Next.js 16", "Supabase (Postgres + RLS)", "TypeScript", "Tailwind CSS 4", "Vercel"],
     live: { label: "tsec.info", href: "https://tsec.info" },
     icon: <GraduationCap className="h-5 w-5" />,
     flagship: true,
@@ -63,7 +66,8 @@ const PROJECTS: Project[] = [
     live: { label: "dev.baantdee.com", href: "https://dev.baantdee.com" },
     repo: "https://github.com/krittapastrycode",
     icon: <Server className="h-5 w-5" />,
-    badge: "Production",
+    badge: "Developing",
+    showcase: true,
   },
   {
     name: "HoroAcademy",
@@ -189,6 +193,8 @@ function Monogram({ size = "text-base" }: { size?: string }) {
   );
 }
 
+
+
 function HeroSplit() {
   return (
     <section className="flex min-h-screen w-full flex-col lg:flex-row">
@@ -199,7 +205,7 @@ function HeroSplit() {
         <div className="relative flex items-center justify-between px-2 py-2 lg:px-4">
           <div className="flex items-center gap-3">
             <Monogram size="text-2xl" />
-            <div className="liquid-glass hidden items-center gap-3 rounded-full px-4 py-2 sm:flex">
+            <div className="liquid-glass shine hidden items-center gap-3 rounded-full px-4 py-2 sm:flex">
               <Social href={LINKS.github} label="GitHub">
                 <Github className="h-4 w-4" />
               </Social>
@@ -215,10 +221,10 @@ function HeroSplit() {
             <a
               href="/krittapas-polmanee-cv.pdf"
               download
-              className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+              className="shine pressable liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white"
             >
               <Download className="h-4 w-4" />
-              Resume
+              Resume/CV
             </a>
           </div>
         </div>
@@ -243,7 +249,7 @@ function HeroSplit() {
 
           <a
             href="#projects"
-            className="liquid-glass-strong group mt-8 flex items-center gap-3 rounded-full px-6 py-3 text-white transition-transform hover:scale-105 active:scale-95"
+            className="shine pressable liquid-glass-strong group mt-8 flex items-center gap-3 rounded-full px-6 py-3 text-white"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15">
               <ArrowRight className="h-4 w-4" />
@@ -277,7 +283,7 @@ function HeroSplit() {
       </div>
 
       {/* Right panel — desktop only */}
-      <div className="hidden w-[48%] flex-col p-6 lg:flex">
+      <div className="hidden w-[48%] flex-col gap-6 p-6 lg:flex">
         <div className="flex items-start justify-between gap-4">
           <div className="liquid-glass w-64 rounded-3xl p-5">
             <p className="text-sm font-medium text-white">Open to opportunities</p>
@@ -287,14 +293,19 @@ function HeroSplit() {
           </div>
           <a
             href="#contact"
-            className="liquid-glass flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+            className="shine pressable liquid-glass flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm text-white"
           >
             <Sparkles className="h-4 w-4" />
             Get in touch
           </a>
         </div>
 
-        <div className="liquid-glass-strong mt-auto rounded-[2.5rem] p-4">
+        {/* product preview — fills the middle space */}
+        <div className="flex min-h-0 flex-1 items-center">
+          <ProductShowcase />
+        </div>
+
+        <div className="liquid-glass-strong rounded-[2.5rem] p-4">
           <div className="grid grid-cols-2 gap-3">
             <div className="liquid-glass rounded-3xl p-5">
               <Server className="h-5 w-5 text-white" />
@@ -316,7 +327,7 @@ function HeroSplit() {
             href="https://dev.baantdee.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass mt-3 flex items-center gap-4 rounded-3xl p-4 transition-transform hover:scale-[1.02]"
+            className="pressable liquid-glass mt-3 flex items-center gap-4 rounded-3xl p-4"
           >
             <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-2xl bg-white/10">
               <Server className="h-6 w-6 text-white/80" />
@@ -352,7 +363,7 @@ function Social({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="text-white transition-colors hover:text-white/60"
+      className="pressable text-white"
     >
       {children}
     </a>
@@ -388,7 +399,7 @@ function Projects() {
           <article
             key={p.name}
             className={`liquid-glass-strong flex flex-col rounded-3xl p-6 ${
-              p.flagship ? "md:col-span-2" : ""
+              p.flagship ? "md:col-span-2 flagship-card" : ""
             }`}
           >
             <div className="flex items-start justify-between gap-4">
@@ -402,7 +413,11 @@ function Projects() {
                 </div>
               </div>
               {p.badge && (
-                <span className="liquid-glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-white/70">
+                <span
+                  className={`liquid-glass shine rounded-full px-3 py-1 text-[10px] uppercase tracking-widest ${
+                    p.flagship ? "shine-flagship" : "text-white/70"
+                  }`}
+                >
                   {p.badge}
                 </span>
               )}
@@ -411,6 +426,8 @@ function Projects() {
             <p className="mt-4 flex-1 text-sm leading-relaxed text-white/70">
               {p.description}
             </p>
+
+            {p.showcase && <BaanTDeeShowcase />}
 
             <div className="mt-5 flex flex-wrap gap-2">
               {p.stack.map((s) => (
@@ -430,7 +447,7 @@ function Projects() {
                     href={p.live.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-white transition-transform hover:scale-105"
+                    className="shine pressable liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-white"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
                     {p.live.label}
@@ -529,7 +546,7 @@ function Contact() {
           href={GMAIL_COMPOSE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="liquid-glass-strong mx-auto mt-8 flex w-fit items-center gap-3 rounded-full px-6 py-3 text-white transition-transform hover:scale-105 active:scale-95"
+          className="shine pressable liquid-glass-strong mx-auto mt-8 flex w-fit items-center gap-3 rounded-full px-6 py-3 text-white"
         >
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15">
             <Mail className="h-4 w-4" />
@@ -537,7 +554,7 @@ function Contact() {
           <span className="text-sm font-medium">{LINKS.email}</span>
         </a>
 
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="liquid-glass shine mt-8 flex items-center justify-center gap-4 rounded-full px-6 py-3">
           <Social href={LINKS.github} label="GitHub">
             <Github className="h-5 w-5" />
           </Social>

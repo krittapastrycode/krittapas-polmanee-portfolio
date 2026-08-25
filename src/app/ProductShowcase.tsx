@@ -732,11 +732,13 @@ function HoroAdminVisual() {
       <rect x="240" y="6" width="60" height="14" rx="7" fill="rgba(255,255,255,0.1)" />
       <circle cx="312" cy="13" r="6" fill="rgba(255,255,255,0.25)" />
       {/* stat cards */}
-      {[
-        ["Courses", "48", 78],
-        ["Registered users", "75,000+", 146],
-        ["Revenue", "฿2.1M", 214],
-      ].map(([label, val, x]) => (
+      {(
+        [
+          ["Courses", "48", 78],
+          ["Registered users", "75,000+", 146],
+          ["Revenue", "฿2.1M", 214],
+        ] as [string, string, number][]
+      ).map(([label, val, x]) => (
         <g key={label as string}>
           <rect x={x} y="34" width="60" height="40" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" />
           <text x={x + 8} y="48" fontSize="6" fill="rgba(255,255,255,0.45)">{label}</text>
@@ -1351,20 +1353,17 @@ export default function ProductShowcase({
   const [resetKey, setResetKey] = useState(0);
   const index = projectIndex;
   const h = HIGHLIGHTS[index];
-  const Visual = h.Visual;
   const stageInfo = h.stages[Math.min(stage, h.stages.length - 1)];
   const stageCount = h.stages.length;
 
-  // multi-stage projects render their own stage chips; single-stage render directly
+  // each project renders its own stage container
   const stageVisual =
     h.key === "baantdee" ? (
       <BaantdeeVisual stage={stage} onStage={setStage} />
     ) : h.key === "tsec" ? (
       <TsecContainer stage={stage} onStage={setStage} labels={h.stages.map((s) => s.label)} />
-    ) : h.key === "horo" ? (
-      <HoroContainer stage={stage} onStage={setStage} labels={h.stages.map((s) => s.label)} />
     ) : (
-      <Visual />
+      <HoroContainer stage={stage} onStage={setStage} labels={h.stages.map((s) => s.label)} />
     );
 
   useEffect(() => {

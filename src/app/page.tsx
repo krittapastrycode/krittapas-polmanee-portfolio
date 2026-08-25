@@ -1,6 +1,7 @@
 "use client";
 
-import ProductShowcase, { BaanTDeeShowcase } from "./ProductShowcase";
+import { useState } from "react";
+import ProductShowcase, { BaanTDeeShowcase, TsecShowcase, HoroShowcase, LogicShowcase, MilitaryShowcase, BabyRevealShowcase, DomShowcase, HIGHLIGHTS } from "./ProductShowcase";
 
 import {
   ArrowRight,
@@ -41,8 +42,9 @@ type Project = {
   adminPanel?: boolean;
   icon: React.ReactNode;
   flagship?: boolean;
+  latest?: boolean;
   badge?: string;
-  showcase?: boolean;
+  showcase?: "baantdee" | "tsec" | "horo" | "logic" | "military" | "baby" | "dome";
 };
 
 const PROJECTS: Project[] = [
@@ -55,19 +57,21 @@ const PROJECTS: Project[] = [
     live: { label: "tsec.info", href: "https://tsec.info" },
     icon: <GraduationCap className="h-5 w-5" />,
     flagship: true,
-    badge: "Flagship",
+    badge: "Production",
+    latest: true,
+    showcase: "tsec",
   },
   {
     name: "BaanTDee",
     tagline: "Real-estate listing platform · บ้านที่ดี",
     description:
-      "Full-stack property marketplace for Thailand. Tiered subscriptions with billing, geo-search over PostGIS, image uploads to R2, and Omise payments — built end to end and deployed on Railway.",
-    stack: ["NestJS", "Next.js 16", "PostgreSQL + PostGIS", "Redis", "Omise", "Railway"],
+      "Full-stack property marketplace for Thailand — in active development. Tiered subscriptions with billing, PostGIS geo-search, image uploads to R2, and Omise payments. Live dev build running at dev.baantdee.com.",
+    stack: ["NestJS", "Next.js 16", "PostgreSQL + PostGIS", "Upstash Redis", "Omise", "Railway"],
     live: { label: "dev.baantdee.com", href: "https://dev.baantdee.com" },
     repo: "https://github.com/krittapastrycode",
     icon: <Server className="h-5 w-5" />,
     badge: "Developing",
-    showcase: true,
+    showcase: "baantdee",
   },
   {
     name: "HoroAcademy",
@@ -79,6 +83,7 @@ const PROJECTS: Project[] = [
     adminPanel: true,
     icon: <Server className="h-5 w-5" />,
     badge: "Production",
+    showcase: "horo",
   },
   {
     name: "LogicIQ",
@@ -90,6 +95,7 @@ const PROJECTS: Project[] = [
     adminPanel: true,
     icon: <CreditCard className="h-5 w-5" />,
     badge: "Production",
+    showcase: "logic",
   },
   {
     name: "Military Task Manager",
@@ -100,6 +106,7 @@ const PROJECTS: Project[] = [
     notPublic: true,
     adminPanel: true,
     icon: <Database className="h-5 w-5" />,
+    showcase: "military",
   },
   {
     name: "Baby Reveal",
@@ -109,6 +116,7 @@ const PROJECTS: Project[] = [
     stack: ["JavaScript", "Vercel"],
     live: { label: "Live demo", href: "https://baby-reveal-kappa.vercel.app" },
     icon: <Sparkles className="h-5 w-5" />,
+    showcase: "baby",
   },
   {
     name: "DomEmerge",
@@ -118,6 +126,7 @@ const PROJECTS: Project[] = [
     stack: ["React Native", "Expo", "Sonic Sensor", "Push Notifications"],
     repo: "https://github.com/krittapastrycode",
     icon: <Smartphone className="h-5 w-5" />,
+    showcase: "dome",
   },
 ];
 
@@ -196,6 +205,7 @@ function Monogram({ size = "text-base" }: { size?: string }) {
 
 
 function HeroSplit() {
+  const [activeProject, setActiveProject] = useState(0);
   return (
     <section className="flex min-h-screen w-full flex-col lg:flex-row">
       {/* Left panel */}
@@ -247,6 +257,11 @@ function HeroSplit() {
             <em className="font-serif italic text-white/90">NestJS</em>.
           </p>
 
+          <p className="mt-4 flex items-center justify-center gap-2 text-xs text-white/50">
+            <span className="inline-block h-2 w-2 rounded-full bg-white/70" />
+            Open to opportunities — remote backend or full-stack roles. Available now.
+          </p>
+
           <a
             href="#projects"
             className="shine pressable liquid-glass-strong group mt-8 flex items-center gap-3 rounded-full px-6 py-3 text-white"
@@ -284,13 +299,7 @@ function HeroSplit() {
 
       {/* Right panel — desktop only */}
       <div className="hidden w-[48%] flex-col gap-6 p-6 lg:flex">
-        <div className="flex items-start justify-between gap-4">
-          <div className="liquid-glass w-64 rounded-3xl p-5">
-            <p className="text-sm font-medium text-white">Open to opportunities</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Looking for remote backend or full-stack roles. Available now.
-            </p>
-          </div>
+        <div className="flex items-start justify-end">
           <a
             href="#contact"
             className="shine pressable liquid-glass flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm text-white"
@@ -302,46 +311,52 @@ function HeroSplit() {
 
         {/* product preview — fills the middle space */}
         <div className="flex min-h-0 flex-1 items-center">
-          <ProductShowcase />
+          <ProductShowcase projectIndex={activeProject} onProjectChange={setActiveProject} />
         </div>
 
+        {/* stack card — original look, content follows the active project */}
         <div className="liquid-glass-strong rounded-[2.5rem] p-4">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="liquid-glass rounded-3xl p-5">
-              <Server className="h-5 w-5 text-white" />
-              <p className="mt-3 text-sm font-medium text-white">Backend</p>
-              <p className="mt-1 text-xs text-white/60">
-                Laravel · NestJS · billing & subscription logic
-              </p>
-            </div>
-            <div className="liquid-glass rounded-3xl p-5">
-              <Database className="h-5 w-5 text-white" />
-              <p className="mt-3 text-sm font-medium text-white">Data & Infra</p>
-              <p className="mt-1 text-xs text-white/60">
-                PostgreSQL · PostGIS · Redis · Docker
-              </p>
-            </div>
-          </div>
+          {(() => {
+            const p = HIGHLIGHTS[activeProject];
+            return (
+              <>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="liquid-glass rounded-3xl p-5">
+                    <Server className="h-5 w-5 text-white" />
+                    <p className="mt-3 text-sm font-medium text-white">Backend</p>
+                    <p className="mt-1 text-xs text-white/60">
+                      {p.backend}
+                    </p>
+                  </div>
+                  <div className="liquid-glass rounded-3xl p-5">
+                    <Database className="h-5 w-5 text-white" />
+                    <p className="mt-3 text-sm font-medium text-white">Data & Infra</p>
+                    <p className="mt-1 text-xs text-white/60">
+                      {p.infra}
+                    </p>
+                  </div>
+                </div>
 
-          <a
-            href="https://dev.baantdee.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pressable liquid-glass mt-3 flex items-center gap-4 rounded-3xl p-4"
-          >
-            <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-2xl bg-white/10">
-              <Server className="h-6 w-6 text-white/80" />
-            </div>
-            <div className="flex-1">
-              <p className="text-sm font-medium text-white">BaanTDee — live</p>
-              <p className="text-xs text-white/60">
-                Full-stack property platform on Railway
-              </p>
-            </div>
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white">
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-          </a>
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pressable liquid-glass mt-3 flex items-center gap-4 rounded-3xl p-4"
+                >
+                  <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-2xl bg-white/10">
+                    <Server className="h-6 w-6 text-white/80" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-white">{p.name} — live</p>
+                    <p className="text-xs text-white/60">{p.live.replace("https://", "")}</p>
+                  </div>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </a>
+              </>
+            );
+          })()}
         </div>
       </div>
     </section>
@@ -412,22 +427,31 @@ function Projects() {
                   <p className="text-xs text-white/50">{p.tagline}</p>
                 </div>
               </div>
-              {p.badge && (
-                <span
-                  className={`liquid-glass shine rounded-full px-3 py-1 text-[10px] uppercase tracking-widest ${
-                    p.flagship ? "shine-flagship" : "text-white/70"
-                  }`}
-                >
-                  {p.badge}
-                </span>
-              )}
+              <div className="flex items-center gap-2">
+                {p.badge && (
+                  <span className="liquid-glass shine rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-white/70">
+                    {p.badge}
+                  </span>
+                )}
+                {p.latest && (
+                  <span className="liquid-glass shine shine-flagship rounded-full px-3 py-1 text-[10px] uppercase tracking-widest">
+                    Latest
+                  </span>
+                )}
+              </div>
             </div>
 
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-white/70">
+            <p className="mt-4 h-[7.125rem] overflow-hidden text-sm leading-relaxed text-white/70">
               {p.description}
             </p>
 
-            {p.showcase && <BaanTDeeShowcase />}
+            {p.showcase === "baantdee" && <BaanTDeeShowcase />}
+            {p.showcase === "tsec" && <TsecShowcase />}
+            {p.showcase === "horo" && <HoroShowcase />}
+            {p.showcase === "logic" && <LogicShowcase />}
+            {p.showcase === "military" && <MilitaryShowcase />}
+            {p.showcase === "baby" && <BabyRevealShowcase />}
+            {p.showcase === "dome" && <DomShowcase />}
 
             <div className="mt-5 flex flex-wrap gap-2">
               {p.stack.map((s) => (

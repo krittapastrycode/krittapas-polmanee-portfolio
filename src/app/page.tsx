@@ -26,6 +26,7 @@ const VIDEO_SRC =
 const LINKS = {
   github: "https://github.com/krittapastrycode",
   linkedin: "https://www.linkedin.com/in/krittapas-polmanee",
+  twitter: "https://x.com/thumguleideegwa",
   email: "capton45@gmail.com",
 };
 
@@ -320,15 +321,22 @@ function HeroSplit() {
             const p = HIGHLIGHTS[activeProject];
             return (
               <>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="liquid-glass rounded-3xl p-5">
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="liquid-glass rounded-3xl p-4">
                     <Server className="h-5 w-5 text-white" />
                     <p className="mt-3 text-sm font-medium text-white">Backend</p>
                     <p className="mt-1 text-xs text-white/60">
                       {p.backend}
                     </p>
                   </div>
-                  <div className="liquid-glass rounded-3xl p-5">
+                  <div className="liquid-glass rounded-3xl p-4">
+                    <Smartphone className="h-5 w-5 text-white" />
+                    <p className="mt-3 text-sm font-medium text-white">Frontend</p>
+                    <p className="mt-1 text-xs text-white/60">
+                      {p.frontend}
+                    </p>
+                  </div>
+                  <div className="liquid-glass rounded-3xl p-4">
                     <Database className="h-5 w-5 text-white" />
                     <p className="mt-3 text-sm font-medium text-white">Data & Infra</p>
                     <p className="mt-1 text-xs text-white/60">
@@ -585,6 +593,20 @@ function Contact() {
           <Social href={LINKS.linkedin} label="LinkedIn">
             <Linkedin className="h-5 w-5" />
           </Social>
+          <Social href={LINKS.twitter} label="Twitter / X">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+              <path d="M18.34 2H21.5L13.92 10.61 22.5 22H15.89L10.9 15.2 5.04 22H1.86L10.04 12.62 1.86 2H8.68L12.96 7.86 18.34 2Zm-2.88 17.94H18.5L7.4 4.14H4.15L15.46 19.94Z" />
+            </svg>
+          </Social>
+          <a
+            href="/krittapas-polmanee-cv.pdf"
+            download="Krittapas_Polmanee_Resume.pdf"
+            aria-label="Resume/CV"
+            title="Download Resume/CV"
+            className="pressable text-white"
+          >
+            <Download className="h-5 w-5" />
+          </a>
         </div>
       </div>
 

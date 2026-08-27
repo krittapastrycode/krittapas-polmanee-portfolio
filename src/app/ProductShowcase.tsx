@@ -542,8 +542,10 @@ function TsecVisual() {
         </g>
       ))}
       {/* buttons */}
-      <rect x="20" y="152" width="52" height="20" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" />
-      <text x="46" y="165.5" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.7)">← Back</text>
+      <g className="cursor-pointer" onClick={() => setStep((step - 1 + 6) % 6)}>
+        <rect x="20" y="152" width="52" height="20" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" />
+        <text x="46" y="165.5" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.7)">← Back</text>
+      </g>
       <g className="cursor-pointer" onClick={() => setStep((step + 1) % 6)}>
         <rect x="282" y="152" width="58" height="20" rx="10" fill="rgba(255,255,255,0.9)" />
         <text x="311" y="165.5" textAnchor="middle" fontSize="7" fontWeight={700} fill="#0e1116">
@@ -1275,8 +1277,9 @@ export const HIGHLIGHTS = [
     name: "BaanTDee",
     badge: "Developing",
     live: "https://dev.baantdee.com",
-    backend: "NestJS · billing & subscription logic",
-    infra: "PostgreSQL + PostGIS · Redis · Docker",
+    backend: "NestJS",
+    frontend: "Next.js 16",
+    infra: "PostgreSQL + PostGIS · Upstash Redis · Omise · Railway",
     stages: BAANTDEE_STAGES,
     Visual: BaantdeeVisual,
   },
@@ -1285,8 +1288,9 @@ export const HIGHLIGHTS = [
     name: "TSEC",
     badge: "Flagship",
     live: "https://tsec.info",
-    backend: "Next.js 16 · Supabase (Postgres + RLS)",
-    infra: "TypeScript · Tailwind CSS 4 · Vercel",
+    backend: "Supabase (Postgres + RLS)",
+    frontend: "Next.js 16 · TypeScript · Tailwind CSS 4",
+    infra: "Vercel",
     stages: [
       {
         key: "hero",
@@ -1314,8 +1318,9 @@ export const HIGHLIGHTS = [
     name: "HoroAcademy",
     badge: "Production",
     live: "https://www.horoacademy.com",
-    backend: "Laravel · Filament PHP",
-    infra: "PostgreSQL · Google Calendar API",
+    backend: "Laravel",
+    frontend: "Filament PHP",
+    infra: "PostgreSQL",
     stages: [
       {
         key: "mobile",

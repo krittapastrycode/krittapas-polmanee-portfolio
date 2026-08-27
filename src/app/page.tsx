@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
     tagline: "Real-estate listing platform · บ้านที่ดี",
     description:
       "Full-stack property marketplace for Thailand — in active development. Tiered subscriptions with billing, PostGIS geo-search, image uploads to R2, and Omise payments. Live dev build running at dev.baantdee.com.",
-    stack: ["NestJS", "Next.js 16", "PostgreSQL + PostGIS", "Upstash Redis", "Omise", "Railway"],
+    stack: ["NestJS", "Next.js 16", "PostgreSQL + PostGIS", "Redis", "Omise", "Railway"],
     live: { label: "dev.baantdee.com", href: "https://dev.baantdee.com" },
     repo: "https://github.com/krittapastrycode",
     icon: <Server className="h-5 w-5" />,
@@ -293,7 +293,9 @@ function HeroSplit() {
           </p>
           <p className="mt-2 text-sm text-white/70">
             Maintained systems serving{" "}
-            <em className="font-serif italic text-white/90">75,000 registered users</em>.
+            <em className="font-serif italic text-white/90">75,000 registered users</em>
+            {" "}— and shipped a live national scholarship platform,{" "}
+            <em className="font-serif italic text-white/90">TSEC</em> (tsec.info).
           </p>
         </div>
       </div>
@@ -310,8 +312,8 @@ function HeroSplit() {
           </a>
         </div>
 
-        {/* product preview — fills the middle space */}
-        <div className="flex min-h-0 flex-1 items-center">
+        {/* product preview — fixed height so the stack card's size never moves it */}
+        <div className="flex h-[30rem] items-center">
           <ProductShowcase projectIndex={activeProject} onProjectChange={setActiveProject} />
         </div>
 

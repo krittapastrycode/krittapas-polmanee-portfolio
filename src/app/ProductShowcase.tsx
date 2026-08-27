@@ -1279,7 +1279,7 @@ export const HIGHLIGHTS = [
     live: "https://dev.baantdee.com",
     backend: "NestJS",
     frontend: "Next.js 16",
-    infra: "PostgreSQL + PostGIS · Upstash Redis · Omise · Railway",
+    infra: "PostgreSQL + PostGIS · Redis · Omise · Railway",
     stages: BAANTDEE_STAGES,
     Visual: BaantdeeVisual,
   },

@@ -27,7 +27,7 @@ const LINKS = {
   github: "https://github.com/krittapastrycode",
   linkedin: "https://www.linkedin.com/in/krittapas-polmanee",
   twitter: "https://x.com/thumguleideegwa",
-  email: "capton45@gmail.com",
+  email: "p.krittapas46@gmail.com",
 };
 
 const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${LINKS.email}`;
@@ -246,7 +246,7 @@ function HeroSplit() {
           </div>
 
           <p className="mb-4 flex items-center gap-2 text-xs uppercase tracking-widest text-white/50">
-            <MapPin className="h-3.5 w-3.5" /> Hangzhou, China
+            <MapPin className="h-3.5 w-3.5" /> Bangkok, Thailand
           </p>
 
           <h1 className="text-5xl tracking-[-0.05em] text-white lg:text-7xl">
